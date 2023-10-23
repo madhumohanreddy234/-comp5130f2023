@@ -1,3 +1,0 @@
-This paper describes about SASP architectural design, and its essential features and components are the incident handlers' primary requirements. Next, we talk about the solution's future potential and the findings of our user-centric assessment, which was done on employees of several Security Operation Centres. We propose employing a semantic web-based method to record incident response and recovery procedure knowledge in order to facilitate playbook sharing using a shared, standardised vocabulary. We present SASP, a proof-of-concept application for playbook management based on Semantic MediaWiki, to better illustrate our methodology.
-
-
