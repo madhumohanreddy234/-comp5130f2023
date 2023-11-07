@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validation Form</title>
+    <style>
+        label, input {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CHECK FORM</h1>
+    <form id="validationForm">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" required><br>
+
+        <label for="url">URL:</label>
+        <input type text id="url" name="url" required><br>
+
+        <button type="button" onclick="validateForm()">Submit</button>
+        <button type="button" onclick="clearForm()">Clear</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function validateForm() {
+            const emailRegex = /^\b[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}\b/;
+            const phoneRegex = /^\b(\(\d{3}\) ?|\d{3}[- ]?)\d{3}[-]?\d{4}\b/;
+            const urlRegex = /https?:\/\/(?:www\-[a-zA-Z0-9-]+\.[a-z]{2,}(?:\/\S*)?)/;
+
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const urlInput = document.getElementById('url');
+
+            const emailIsValid = emailRegex.test(emailInput.value);
+            const phoneIsValid = phoneRegex.test(phoneInput.value);
+            const urlIsValid = urlRegex.test(urlInput.value);
+
+            const resultDiv = document.getElementById('result');
+
+            resultDiv.innerHTML = "";
+
+            if (emailIsValid) {
+                resultDiv.innerHTML += "Email is valid<br>";
+            } else {
+                resultDiv.innerHTML += "Email is not valid<br>";
+            }
+
+            if (phoneIsValid) {
+                resultDiv.innerHTML += "Phone number is valid<br>";
+            } else {
+                resultDiv.innerHTML += "Phone number is not valid<br>";
+            }
+
+            if (urlIsValid) {
+                resultDiv.innerHTML += "URL is valid<br>";
+            } else {
+                resultDiv.innerHTML += "URL is not valid<br>";
+            }
+        }
+
+        function clearForm() {
+            document.getElementById('validationForm').reset();
+            document.getElementById('result').innerHTML = "";
+        }
+    </script>
+</body>
+</html>
